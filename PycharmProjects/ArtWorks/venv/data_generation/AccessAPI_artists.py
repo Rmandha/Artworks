@@ -17,6 +17,7 @@ json_output = json.loads(result)
 # print(json_output)
 artworks = json_output['_embedded']['artists']
 target.write(json.dumps(artworks))
+# Added the sleep to prevent the timeout errors due to Json Decoder issues as the artist list 45000
 time.sleep(.5)
 file_id = file_id + 1
 next_page = json_output['_links']['next']['href']
